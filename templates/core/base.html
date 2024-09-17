@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+
+<html >
+
+<head>
+    <meta chaset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> {% block title %}{% endblock %} | ZIGZAG TUFT</title>
+
+    <!-- Stylr for css inline -->
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        a{
+            text-decoration: none;
+        }
+        .menu li a{
+            display: block;
+            height: 40px;
+            padding: 0 10px;
+            border-radius: 8px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: rgb(240, 238, 238);
+            font-size: 18px;
+        }
+        nav{
+            background:rgb(0, 0, 0) ;display: flex; justify-content: space-between;padding: 20px;
+            align-items: center;
+        }
+        .logo{
+            font-size:30px; text-decoration:none; letter-spacing: 2px; font-weight: 600;color: azure;
+        }
+        nav ul{
+            list-style: none;  text-decoration: none; display: flex; gap: 20px;  align-items: center;
+        }
+        footer{
+            background:rgb(0, 0, 0) ;display: flex; justify-content: space-between;  position: absolute; bottom: -10; width:100%;
+        }
+        footer p{
+            color: rgb(180, 178, 178); 
+        }
+        @media (max-width:400px) {
+            nav{
+                padding: 10px;
+            }
+            .logo{
+                font-size: 18px;
+            }
+            nav ul{
+                gap: 5px;
+            }
+            .menu{
+                margin: 0;
+            }
+            .menu li a{
+                height: 30px;
+                padding: 0;
+                font-size: 14px;
+            }
+            footer p{
+                font-size: 14px;
+            }
+            footer{
+                line-height: normal;
+            }
+        }
+    </style>
+</head>
+
+<body style="background: rgb(255, 255, 255); position: relative; min-height: 100vh; max-height: max-content;">
+    <nav >
+        <a href="/" class="logo">ZIGZAG TUFT</a>
+        <div class="menu" style="margin: 0 10px;">
+            <ul >
+                <li><a href="/" >Newest</a></li>
+                <li><a href="{% url 'core:all' %}" >Browse</a> </li>
+                {% if request.user.is_authenticated %}
+                    <li><a href="{% url 'conversation:inbox' %}" style="background-color: green;" >Inbox</a></li>
+                    <li><a href="{% url 'core:logout' %}" style="background-color: rgb(187, 17, 17); min-width: 50px;">Logout</a> </li>
+                {% else %}
+                    <li><a href="{% url 'core:login' %}" style="background-color:rgb(148, 139, 139);    min-width: 50px;">Log in</a> </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="content">
+        {% block content %} {% endblock %}
+    </div>
+
+    <footer>
+        <div class="infos" style="padding: 20px;">
+            <h3 style="color: rgb(116, 115, 115);">
+                About
+            </h3>
+            <br>
+            <p>
+                ZIGZAG TUFT is a small project realised in Algeria to make people happy with ther own rugs made by hand.
+            </p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

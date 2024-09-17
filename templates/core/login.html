@@ -1,0 +1,101 @@
+{% extends 'core/base.html' %} 
+
+{% block title %}Login{% endblock %} 
+
+{% block content %}
+
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+<!-- style for css -->
+<style>
+    .container{
+        width: 100%;
+        min-height: 80vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .box{
+        width: 60%;
+        min-height: 80%;
+        background: rgb(224, 224, 224);
+        border-radius: 10px;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h1{
+        text-align: center;
+        font-size: 35px;
+        margin: 20px 30px;
+    }
+    form{
+        width: 70%;
+        position: relative;
+    }
+    .input-box i{
+        position: absolute;
+        right:0;
+        transform: translateY(-35px);
+        font-size: 20px;
+    }
+    .input-box{
+        margin: 20px auto;
+    }
+    .button{
+        display: flex;
+        justify-content: center;
+    }
+    button{
+        background-color: rgb(241, 241, 241);
+        width: 120px;
+        height: 40px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+        margin-top: 10px;
+        color: rgb(70, 70, 70);
+    }
+    button:hover{
+        cursor: pointer;
+    }
+</style>
+
+
+<div class="container">
+    <div class="box">
+        <h1 >
+            Login
+        </h1>
+        <form method="post" action=".">
+            {% csrf_token %}
+
+            <div class="input-box">
+                {{ form.username }}
+                <i class='bx bx-user'></i>
+            </div>
+
+            <div class="input-box">
+                {{ form.password }}
+                <i class='bx bxs-lock-alt'></i>
+            </div>
+
+            {% if form.errors or form.non_field_errors %}
+            <div >
+                {% for field in form %} {{ field.errors }} {% endfor %} {{ form.non_field_errors }}
+            </div>
+            {% endif %}
+
+            <div class="button">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+
+        <div class="signup" style='padding-bottom:15px'>
+            <p>you don't have an account ?
+                <a href="{% url 'core:signup' %}" style="text-decoration: none;  width: 90px;">Sign up</a>
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}

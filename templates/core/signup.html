@@ -1,0 +1,112 @@
+{% extends 'core/base.html' %} 
+
+{% block title %}
+    Sign Up
+{% endblock %} 
+
+{% block content %}
+
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+<!-- style for css -->
+<style>
+    .container{
+        margin: 20px 0;
+        width: 100%;
+        min-height: 80vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .box{
+        width: 60%;
+        min-height: 80%;
+        background: rgb(224, 224, 224);
+        border-radius: 10px;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h1{
+        text-align: center;
+        font-size: 35px;
+        margin: 20px 30px;
+    }
+    form{
+        width: 70%;
+        position: relative;
+    }
+    .input-box{
+        margin: 20px auto;
+    }
+    .input-box i{
+        position: absolute;
+        right:0;
+        transform: translateY(-35px);
+        font-size: 20px;
+    }
+    .button{
+        display: flex;
+        justify-content: center;
+    }
+    button{
+        background-color: rgb(241, 241, 241);
+        width: 120px;
+        height: 40px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+        margin-top: 10px;
+        color: rgb(70, 70, 70);
+    }
+    button:hover{
+        cursor: pointer;
+    }
+</style>
+
+<div class="container">
+    <div class="box">
+        <h1>Sign up</h1>
+    
+        <form method="post" action=".">
+            {% csrf_token %}
+    
+            <div class="input-box">
+                <div class="field">{{ form.username }}</div>
+                <i class='bx bx-user'></i>
+            </div>
+    
+            <div class="input-box">
+                <div class="field">{{ form.email }}</div>
+                <i class='bx bx-envelope'></i>
+            </div>
+    
+            <div class="input-box">
+                <div class="field">{{ form.password1 }}</div>
+                <i class='bx bx-lock-alt'></i>
+            </div>
+    
+            <div class="input-box">
+                <div class="field">{{ form.password2 }}</div>
+                <i class='bx bxs-lock-alt'></i>
+            </div>
+    
+            {% if form.errors or form.non_field_errors %}
+                <div >
+                    {% for field in form %} 
+                        {{ field.errors }} 
+                    {% endfor %} 
+                    
+                    {{ form.non_field_errors }}
+                </div>
+            {% endif %}
+            
+            <div class="button">
+                <button type="submit">Submit</button>
+            </div>
+            
+        </form>
+    </div>
+</div>
+
+{% endblock %}
