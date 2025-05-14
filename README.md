@@ -1,6 +1,6 @@
 # ZIGZAG-TUFT Marketplace
 
-![ZIGZAG-TUFT Logo](https://placeholder.com/wp-content/uploads/2018/10/placeholder.com-logo1.png)
+![ZIGZAG-TUFT Logo]
 
 A handcrafted marketplace platform for ZIGZAG-TUFT, an Algerian project that creates custom handmade rugs. This web application enables customers to browse products, contact sellers, and engage in conversations about items.
 
@@ -160,16 +160,11 @@ From here you can:
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
 ## 📞 Contact
 
-ZIGZAG TUFT - [Insert contact information]
+ZIGZAG TUFT - [LinkedIn]
 
 Project Link: [https://github.com/yourusername/ZIGZAG-TUFT-site-web](https://github.com/yourusername/ZIGZAG-TUFT-site-web)
 
 ---
 
-Made with ❤️ in Algeria
