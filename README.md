@@ -162,7 +162,7 @@ From here you can:
 
 ## 📞 Contact
 
-ZIGZAG TUFT - [LinkedIn]
+ZIGZAG TUFT - [LinkedIn] 
 
 Project Link: [https://github.com/yourusername/ZIGZAG-TUFT-site-web](https://github.com/yourusername/ZIGZAG-TUFT-site-web)
 
